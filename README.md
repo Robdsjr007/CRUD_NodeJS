@@ -1,12 +1,8 @@
 ## MNR (MongoDB, Node.js, React.js)
 
-Video Course (recorded August 2022): **[samer.dev/mnr](https://samer.dev/mnr)**
+Projeto desenvolvido com base no do **[samer.dev/mnr](https://samer.dev/mnr)**, feito atráves do Video curso de Fullstack JS do LinkedIn learning.
 
-For an up-to-date development environment configuration guide: **[samer.dev/reactful-ts](https://samer.dev/reactful-ts)**
-
-For general help: **[jscomplete.com/help](https://jscomplete.com/help)**
-
-### Reference Text
+### Dependências necessárias
 
 #### package.json scripts
 
