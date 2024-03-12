@@ -1,32 +1,40 @@
 import { useEffect, useState } from "react";
 
-import { fetchContestList } from "../server/api-client";
+import { fetchContestList } from "../api-client";
 
 import ContestPreview from "./contest-preview";
 import Header from "./header";
 
-const ConstestList = ({ initialContests , onContestClick}) => {
-    const [contests, setContests] = useState(initialContests);
-    
-    useEffect(() => {
-        // fetch or axios
-        /// fetchContestList().then((contests) => {
-        // state
-        /// setContests(contests);
-        /// });
-    }, []);
+const ContestList = ({ initialContests, onContestClick }) => {
+  const [contests, setContests] = useState(
+    initialContests ?? [],
+  );
 
-    return (
+  useEffect(() => {
+    if (!initialContests) {
+      fetchContestList().then((contests) => {
+        setContests(contests);
+      });
+    }
+  }, [initialContests]);
+
+  return (
     <>
-    <Header message="Naming Contests"/>
+      <Header message="Nomeação de Concursos" />
 
-    <div className="contest-list">
-            {contests.map((contest) => {
-                return <ContestPreview key={contest.id} contest={contest} onClick={onContestClick}/>
+      <div className="contest-list">
+        {contests.map((contest) => {
+          return (
+            <ContestPreview
+              key={contest.id}
+              contest={contest}
+              onClick={onContestClick}
+            />
+          );
         })}
-    </div>
+      </div>
     </>
-    );
+  );
 };
 
-export default ConstestList;
+export default ContestList;
